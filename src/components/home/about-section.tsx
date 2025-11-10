@@ -16,7 +16,6 @@ export default function About() {
       scrollTrigger: {
         trigger: '.about-section',
         start: 'top 75%',
-        markers: true,
       },
     });
 
@@ -28,6 +27,48 @@ export default function About() {
       {
         opacity: 1,
         duration: 1,
+      }
+    );
+    tl.fromTo(
+      '.modal-btn',
+      {
+        opacity: 0,
+        x: -4,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+      },
+      '-=0.5'
+    );
+    tl.fromTo(
+      ['.back-misc', '.front-misc'],
+      {
+        opacity: 0,
+        x: 10,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        stagger: 0.2,
+      }
+    );
+    gsap.fromTo(
+      '.about-asterisk-misc',
+      {
+        rotateZ: 0,
+      },
+      {
+        rotateZ: 720,
+        ease: 'power2.inOut',
+        scrollTrigger: {
+          trigger: '.about-section',
+          start: 'top 75%',
+          end: 'bottom top',
+          scrub: 2,
+          markers: true,
+        },
       }
     );
   };
@@ -47,7 +88,7 @@ export default function About() {
   }, [modal]);
   return (
     <>
-      <section className="about-section">
+      <section className="about-section" id="sobre-el-museo">
         <Image
           src="/images/fondo.png"
           alt="About bg"
@@ -107,7 +148,19 @@ export default function About() {
                 <p>imaginar, a explorar, a</p>
                 <p>descubrir lo que todavía no vemos.</p>
               </div>
-              <span className="asterisk-misc">*</span>
+              <svg
+                className="asterisk-misc about-asterisk-misc"
+                width="89"
+                height="94"
+                viewBox="0 0 89 94"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M53.687 94L40.277 80.7945L39.979 50.7822C39.979 50.1819 38.191 49.2816 37.893 49.8818L20.609 73.5916L2.13304 76.5928C1.83504 76.5928 0.345042 74.7921 0.345042 74.4919L8.68904 57.3849L36.403 48.3812C36.999 47.7809 36.999 45.9802 36.403 45.3799L8.68904 35.4758L0.0470418 19.2692C-0.250958 18.6689 0.941041 16.8682 1.53704 16.8682L20.609 18.9691L37.595 44.1794C37.893 44.7797 40.277 43.8793 40.277 43.2791L41.469 12.3663L54.283 0.061249C54.581 -0.238871 56.965 0.661488 56.667 0.661488L60.541 18.6689L42.065 43.8793C41.767 44.4796 43.257 46.5804 43.555 46.2803L73.057 36.9765L88.553 46.2803C89.149 45.9802 89.149 48.3812 88.553 48.6813L73.057 57.3849L43.555 48.0811C43.257 47.7809 41.767 49.5817 42.065 50.482L59.647 75.6924L56.369 93.0996C56.369 93.3997 53.985 94 53.687 94Z"
+                  fill="#0B8882"
+                ></path>
+              </svg>
             </div>
           </div>
         </div>

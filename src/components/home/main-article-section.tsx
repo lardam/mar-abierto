@@ -1,8 +1,123 @@
+'use client';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect } from 'react';
 import Arrow from '@/assets/icons/arrow';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function MainArticle() {
+  const anims = () => {
+    const section = document.querySelector('.main-article-section');
+
+    if (section) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 75%',
+        },
+      });
+
+      const subtitle = section.querySelector('.section-subtitle');
+      const title = section.querySelector('.section-title');
+
+      tl.fromTo(
+        [subtitle, title],
+        {
+          opacity: 0,
+          y: 10,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.2,
+          duration: 0.5,
+        }
+      );
+
+      tl.fromTo(
+        '.main-text-card',
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+
+          duration: 1,
+        }
+      );
+      tl.fromTo(
+        '.secondary-text-card',
+        {
+          opacity: 0,
+          x: 20,
+        },
+        {
+          opacity: 1,
+          x: 0,
+
+          duration: 1,
+        },
+        '-=0.15'
+      );
+      tl.fromTo(
+        '.mac-misc-two',
+        {
+          opacity: 0,
+          x: 20,
+          y: 15,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+
+          duration: 1,
+        },
+        '<'
+      );
+      tl.fromTo(
+        '.mac-misc-one',
+        {
+          opacity: 0,
+          x: -20,
+          y: 15,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+
+          duration: 1,
+        },
+        '<'
+      );
+      tl.fromTo(
+        '.mac-link-btn',
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+
+          duration: 1,
+        },
+        '-=0.2'
+      );
+    }
+  };
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    anims();
+  }, []);
+
   return (
     <section className="main-article-section">
       <div className="max-width">

@@ -60,7 +60,7 @@ export default function Schedule() {
   });
 
   return (
-    <section className="schedule-section">
+    <section className="schedule-section" id="programacion">
       <div className="max-width">
         <div className="section-title-container">
           <h3 className="section-subtitle">Programación</h3>

@@ -59,7 +59,7 @@ export default function HomeArticles() {
     anims();
   });
   return (
-    <section className="home-articles-section">
+    <section className="home-articles-section" id="articulos">
       <div className="h-max-width">
         <div className="section-title-container">
           <h3 className="section-subtitle">Noticias</h3>

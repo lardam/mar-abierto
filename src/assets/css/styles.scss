@@ -179,6 +179,8 @@ p {
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
   p,
   span {
     font-family: 'FreightDispProSemibold', sans-serif;
@@ -187,10 +189,12 @@ p {
     font-style: italic;
     text-wrap: nowrap;
     white-space: nowrap;
+    transition: all 0.2s ease;
   }
   svg {
     width: auto;
     height: 12px;
+    transition: all 0.2s ease;
   }
 }
 
@@ -235,6 +239,26 @@ p {
         .lg-navitem {
           height: 24px;
           transform: translateY(4.5px);
+          position: relative;
+          &::before {
+            content: '';
+            width: 100%;
+            height: 2.5px;
+            position: absolute;
+            top: calc(100% + 1px);
+            left: 0;
+            transition: transform 0.2s ease;
+            transform: scaleX(0);
+            transform-origin: center right;
+            background-color: $white;
+            z-index: 1;
+          }
+          &:hover {
+            &::before {
+              transform: scale(1);
+              transform-origin: center left;
+            }
+          }
           .lg-navlink {
             font-size: 24px;
             text-transform: uppercase;
@@ -271,6 +295,16 @@ p {
         }
         .btn {
           background-color: $lblue;
+          &:hover {
+            background-color: $green;
+            p,
+            span {
+              color: $white;
+            }
+            .arrow {
+              fill: $white;
+            }
+          }
         }
       }
       .social-links-list {
@@ -655,16 +689,22 @@ p {
       .schedule-track {
         display: flex;
         flex-flow: row nowrap;
-        gap: 40px;
         overflow: auto;
         .schedule-item {
-          min-width: 330px;
-          padding: 16px 40px 16px 0;
+          min-width: 360px;
+          padding: 16px 40px;
           border-right: 1px solid $black;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
           gap: 120px;
+          transition: all 0.2s ease;
+          &:hover {
+            background-color: $lgreen;
+            .schedule-big-order {
+              fill: $black;
+            }
+          }
           .schedule-data-container {
             display: flex;
             flex-direction: column;
@@ -730,10 +770,14 @@ p {
         position: absolute;
         top: 50%;
         left: 50%;
+        transition: background-color 0.2s ease;
         transform: translate(-50%, -50%) rotateZ(-8deg);
         background-color: $lgreen;
         z-index: 10;
         cursor: pointer;
+        &:hover {
+          background-color: $lblue;
+        }
         p {
           font-family: 'FreightDispProBook', sans-serif;
           font-size: 32px;
@@ -1054,7 +1098,7 @@ p {
           background-color: $white;
           z-index: 10;
           p {
-            font-size: clamp(1.25rem, 0.6346rem + 0.9615vw, 1.5rem);
+            font-size: clamp(1.0625rem, 0.4471rem + 0.9615vw, 1.3125rem);
             b {
               font-weight: 600;
             }
@@ -1107,7 +1151,7 @@ p {
           background-color: $lgreen;
           z-index: 15;
           p {
-            font-size: clamp(1rem, 0.2308rem + 1.2019vw, 1.3125rem);
+            font-size: clamp(0.875rem, 0.4135rem + 0.7212vw, 1.0625rem);
             line-height: 1.33;
           }
           .mac-misc-three {
@@ -1131,12 +1175,25 @@ p {
           position: absolute;
           top: calc(100% + 40px);
           right: calc(100% + 40px);
+          transition: all 0.2s ease;
+          &:hover {
+            background-color: $lblue;
+            p,
+            span {
+              color: $black;
+            }
+            .arrow {
+              fill: $black;
+            }
+          }
           p,
           span {
+            transition: all 0.2s ease;
             color: $white;
           }
           .arrow {
             height: 12px;
+            transition: all 0.2s ease;
             fill: $white;
           }
         }
@@ -1175,12 +1232,25 @@ p {
         }
         .btn {
           margin-top: 32px;
+          transition: all 0.2s ease;
           background-color: $white;
+          &:hover {
+            background-color: $black;
+            p,
+            span {
+              color: $white;
+            }
+            .arrow {
+              fill: $white;
+            }
+          }
           p,
           span {
+            transition: all 0.2s ease;
             color: $black;
           }
           .arrow {
+            transition: all 0.2s ease;
             fill: $black;
           }
         }
