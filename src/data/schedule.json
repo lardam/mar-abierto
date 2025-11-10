@@ -1,0 +1,66 @@
+[
+  {
+    "time": "19hs",
+    "date": "11-12-2025",
+    "room": "Sala 6",
+    "title": "Pensar con <span>el mar</span>.",
+    "description": "Cómo la ciencia transforma la forma en que entendemos el océano argentino hoy.",
+    "order": 1
+  },
+  {
+    "time": "20hs",
+    "date": "11-12-2025",
+    "room": "Sala 7",
+    "title": "El <span>movimiento</span> es lenguaje.",
+    "description": "Una muestra visual que propone leer el mar no como paisaje estático, sino como un sistema vivo.",
+    "order": 2
+  },
+  {
+    "time": "19hs",
+    "date": "12-12-2025",
+    "room": "Sala 6",
+    "title": "La cultura es <span>marea</span>.",
+    "description": "Cómo las narrativas sociales y la memoria colectiva se moldean en relación al mar.",
+    "order": 3
+  },
+  {
+    "time": "19hs",
+    "date": "12-12-2025",
+    "room": "Sala 8",
+    "title": "País de <span>horizontes</span>.",
+    "description": "Pensar el mar argentino desde su valor estratégico, científico y simbólico para el futuro argentino.",
+    "order": 4
+  },
+  {
+    "time": "16hs",
+    "date": "13-12-2025",
+    "room": "Sala 6",
+    "title": "Memoria <span>viva</span>.",
+    "description": "Charla sobre cómo se reconstruye la historia biológica del océano.",
+    "order": 5
+  },
+  {
+    "time": "18hs",
+    "date": "13-12-2025",
+    "room": "Sala 6",
+    "title": "Marea <span>interior</span>.",
+    "description": "Conversación sobre cómo el mar impacta nuestras emociones e imaginarios culturales.",
+    "order": 6
+  },
+  {
+    "time": "19hs",
+    "date": "13-12-2025",
+    "room": "Sala 6",
+    "title": "<span>Azul</span> como frontera.",
+    "description": "Exposición que explora el límite entre lo visible y lo oculto del océano a través de hallazgos.",
+    "order": 7
+  },
+  {
+    "time": "20hs",
+    "date": "13-12-2025",
+    "room": "Sala 8",
+    "title": "Territorios <span>propios</span>.",
+    "description": "Cómo se relacionan biodiversidad, política, territorio y defensa del Mar Argentino hoy.",
+    "order": 8
+  }
+]
