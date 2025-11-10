@@ -1,4 +1,10 @@
+'use client';
+import { useEffect } from 'react';
 import Image from 'next/image';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import MorphSVGPlugin from 'gsap/MorphSVGPlugin';
 
 export default function AboutModal({
   modal,
@@ -7,6 +13,76 @@ export default function AboutModal({
   modal: boolean;
   handleModal: (m: boolean) => void;
 }) {
+  const inAnims = () => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      ['.address-text', '.dates-text'],
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        delay: 0.5,
+        duration: 0.8,
+      }
+    );
+
+    const path = document.querySelector('.modal-line-path') as SVGPathElement;
+    if (path) {
+      const length = path.getTotalLength();
+
+      gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: -length,
+      });
+
+      tl.to(
+        path,
+        {
+          strokeDashoffset: 0,
+          duration: 5,
+          ease: 'power2.inOut',
+        },
+        '-=2'
+      );
+    }
+
+    tl.fromTo(
+      '.modal-hero-stamp',
+      { opacity: 0, rotateZ: 10 },
+      { opacity: 1, rotateZ: -10 },
+      '<'
+    );
+    tl.fromTo(
+      ['.title-line', '.inner-title-line'],
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+        ease: 'power2.inOut',
+      },
+      '<'
+    );
+  };
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin);
+  }, []);
+
+  useEffect(() => {
+    if (modal) {
+      inAnims();
+    }
+  }, [modal]);
+
   return (
     <div className={`about-modal ${modal ? 'show-modal' : ''}`}>
       <div className="go-back" onClick={() => handleModal(false)}>
@@ -45,6 +121,7 @@ export default function AboutModal({
             <div className="modal-title-container">
               <div className="modal-hero-stamp">
                 <Image
+                  className="modal-hero-stamp-img"
                   src="/images/estampilla-modal.webp"
                   alt=""
                   fill
@@ -72,7 +149,8 @@ export default function AboutModal({
                   <p className="title-line">Conocé el</p>
                   <p className="title-line">museo</p>
                   <p className="title-line">
-                    mar <span>/ mar del plata</span>
+                    mar{' '}
+                    <span className="inner-title-line">/ mar del plata</span>
                   </p>
                 </div>
               </div>

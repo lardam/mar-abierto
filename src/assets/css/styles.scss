@@ -863,12 +863,19 @@ p {
     left: 0;
     opacity: 0;
     visibility: hidden;
+    transition: all 0.2s ease 0.5s;
     overflow: auto;
     background-color: $white;
     z-index: 1000;
     &.show-modal {
+      transition: all 0.2s ease 0s;
       opacity: 1;
       visibility: visible;
+      .modal-hero,
+      .modal-content {
+        transition-delay: 0.4s;
+        opacity: 1;
+      }
     }
     .go-back {
       position: fixed;
@@ -882,6 +889,8 @@ p {
       height: 100vh;
       position: relative;
       overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease 0s;
       .max-width {
         display: flex;
         flex-flow: row nowrap;
@@ -914,6 +923,7 @@ p {
               left: -150px;
               top: 80px;
               transform: rotate(-10deg);
+              transform-origin: top left;
               z-index: 0;
               img {
                 width: 100% !important;
@@ -1003,6 +1013,8 @@ p {
     }
     .modal-content {
       padding-bottom: 140px;
+      opacity: 0;
+      transition: opacity 0.2s ease 0s;
       .max-width {
         display: grid;
         grid-template-columns: 390px 476px;
@@ -1347,9 +1359,12 @@ p {
     .post-stamp-cont {
       width: 100%;
       max-width: 512px;
-      aspect-ratio: 512/522;
       height: min-content;
+      aspect-ratio: 512/522;
       position: relative;
+      img {
+        opacity: 0;
+      }
     }
     .post-data-container {
       display: flex;

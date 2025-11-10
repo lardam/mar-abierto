@@ -1,6 +1,69 @@
+'use client';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 export default function PostPage() {
+  const anims = () => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      ['.main-header', '.post-stamp'],
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.5,
+      }
+    );
+    tl.fromTo(
+      ['.post-type', '.page-title', '.post-extract', '.post-by', '.post-date'],
+      {
+        opacity: 0,
+        y: 10,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.2,
+      }
+    );
+
+    const blocks = gsap.utils.toArray([
+      '.crop-image',
+      '.block-title',
+      '.block-text',
+      '.post-quote',
+      '.post-centered-image-container',
+      '.top-line',
+    ]) as HTMLElement[];
+    blocks.forEach((bl) => {
+      gsap.fromTo(
+        bl,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 0.5,
+          scrollTrigger: {
+            trigger: bl,
+            start: 'top 66%',
+          },
+        }
+      );
+    });
+  };
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    anims();
+  }, []);
+
   return (
     <main className="post-page">
       <section className="post-header">
@@ -36,7 +99,7 @@ export default function PostPage() {
         <div className="post-text-block">
           <div className="crop-image crop-image-left"></div>
           <div className="post-text-container">
-            <hr />
+            <hr className="top-line" />
             <h4 className="block-title">
               ¿Por qué el Mar Argentino es considerado un territorio
               estratégico?
@@ -69,7 +132,7 @@ export default function PostPage() {
             </p>
           </div>
           <div className="post-text-container">
-            <hr />
+            <hr className="top-line" />
             <h4 className="block-title">
               ¿Qué rol cumple la investigación científica en este contexto?
             </h4>
@@ -100,7 +163,7 @@ export default function PostPage() {
             <Image src="/images/NotaPeriod02.png" alt="" sizes="30vw" fill />
           </div>
           <div className="post-text-container">
-            <hr />
+            <hr className="top-line" />
             <h4 className="block-title">
               ¿Cómo afectan los microplásticos a los ecosistemas marinos?
             </h4>
@@ -131,7 +194,7 @@ export default function PostPage() {
             </p>
           </div>
           <div className="post-text-container">
-            <hr />
+            <hr className="top-line" />
             <h4 className="block-title">
               ¿Por qué es fundamental que las nuevas generaciones tengan acceso
               a esta información?
@@ -151,7 +214,7 @@ export default function PostPage() {
             <Image src="/images/NotaPeriod03.png" alt="" sizes="30vw" fill />
           </div>
           <div className="post-text-container">
-            <hr />
+            <hr className="top-line" />
             <h4 className="block-title">
               ¿Qué podría habilitar culturalmente un ciclo interdisciplinario
               como este en un museo público?
