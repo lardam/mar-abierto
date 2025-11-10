@@ -7,6 +7,9 @@ import Footer from '@/components/layout/footer';
 export const metadata: Metadata = {
   title: 'Mar abierto',
   description: 'Explorá lo profundo, descubrí lo nuestro',
+  openGraph: {
+    images: '/images/og-image.jpg',
+  },
 };
 
 export default function RootLayout({

@@ -67,7 +67,6 @@ export default function About() {
           start: 'top 75%',
           end: 'bottom top',
           scrub: 2,
-          markers: true,
         },
       }
     );
